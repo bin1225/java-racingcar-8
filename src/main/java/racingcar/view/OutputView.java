@@ -8,6 +8,7 @@ public class OutputView {
 
     private static final String POSITION_BAR = "-";
     private static final String RESULT_MESSAGE = "실행결과";
+    private static final String WINNER_MESSAGE = "최종 우승자";
 
     public static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
@@ -19,6 +20,13 @@ public class OutputView {
                 .collect(Collectors.joining("\n"));
 
         System.out.println(currentProgress);
+    }
+
+    public static void printWinner(List<RacingCar> winners) {
+        String winnerNames = winners.stream()
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println(WINNER_MESSAGE + ": " + winnerNames);
     }
 
     private static String toPositionBar(int position) {
