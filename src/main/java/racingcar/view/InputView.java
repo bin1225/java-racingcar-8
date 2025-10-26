@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.validator.InputValidator;
 
 public class InputView {
 
@@ -21,38 +22,19 @@ public class InputView {
 
         List<String> carNames = Arrays.stream(input.split(DELIMITER))
                 .map(String::trim)
-                .peek(name -> {
-                    if (name.length() > 5) {
-                        throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다: " + name);
-                    }
-                })
                 .filter(s -> !s.isEmpty())
                 .toList();
 
-        if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차를 한대 이상 등록해야 합니다.");
-        }
-
-        if (checkDuplicateNameExist(carNames)) {
-            throw new IllegalArgumentException("자동차 이름이 중복입니다");
-        }
+        InputValidator.validateCarNames(carNames);
 
         return carNames;
-
     }
 
     public static int getAttemptCount() {
         System.out.println(ATTEMPT_COUNT_GUIDE_MESSAGE);
         String input = Console.readLine();
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
-        }
-    }
 
-    private static boolean checkDuplicateNameExist(List<String> carNames) {
-        Set<String> uniqueNames = new HashSet<>(carNames);
-        return uniqueNames.size() != carNames.size();
+        InputValidator.validateNumericInput(input);
+        return Integer.parseInt(input);
     }
 }
