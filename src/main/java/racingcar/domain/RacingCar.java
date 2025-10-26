@@ -5,14 +5,6 @@ public class RacingCar {
     private String name;
     private int position;
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
     public RacingCar(String name) {
         this.name = name;
         this.position = 0;
@@ -20,5 +12,13 @@ public class RacingCar {
 
     public void moveForward() {
         position++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
