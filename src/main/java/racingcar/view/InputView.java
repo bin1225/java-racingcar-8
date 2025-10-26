@@ -34,7 +34,7 @@ public class InputView {
         System.out.println(ATTEMPT_COUNT_GUIDE_MESSAGE);
         String input = Console.readLine();
 
-        InputValidator.validateNumericInput(input);
+        InputValidator.validateAttemptCount(input);
         return Integer.parseInt(input);
     }
 }

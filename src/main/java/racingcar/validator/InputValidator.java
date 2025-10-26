@@ -19,8 +19,13 @@ public class InputValidator {
         });
     }
 
-    public static void validateNumericInput(String input) {
-        if (!input.matches("\\d+")) {  // 숫자 외 문자가 하나라도 있으면 예외 발생
+    public static void validateAttemptCount(String input) {
+        try {
+            int attemptCount = Integer.parseInt(input);
+            if (attemptCount < 0) {
+                throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+            }
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }
