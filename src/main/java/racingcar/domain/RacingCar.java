@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class RacingCar {
 
-    private String name;
+    private final String name;
     private int position;
 
     public RacingCar(String name) {
