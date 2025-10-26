@@ -17,8 +17,8 @@ public class Application {
     private static final WinnerDeterminer winnerDeterminer = new WinnerDeterminer();
 
     public static void main(String[] args) {
-        List<String> carNames = InputView.getCarNames();
-        int attemptCount = InputView.getAttemptCount();
+        List<String> carNames = InputView.readCarNames();
+        int attemptCount = InputView.readAttemptCount();
 
         List<RacingCar> participants = racingManager.registerCars(carNames);
 

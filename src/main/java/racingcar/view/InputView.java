@@ -2,9 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import racingcar.validator.InputValidator;
 
 public class InputView {
@@ -16,7 +14,7 @@ public class InputView {
     private InputView() {
     }
 
-    public static List<String> getCarNames() {
+    public static List<String> readCarNames() {
         System.out.println(CAR_NAMES_GUIDE_MESSAGE);
         String input = Console.readLine();
 
@@ -30,7 +28,7 @@ public class InputView {
         return carNames;
     }
 
-    public static int getAttemptCount() {
+    public static int readAttemptCount() {
         System.out.println(ATTEMPT_COUNT_GUIDE_MESSAGE);
         String input = Console.readLine();
 
