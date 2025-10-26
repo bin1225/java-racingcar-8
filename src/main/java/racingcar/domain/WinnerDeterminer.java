@@ -5,14 +5,14 @@ import java.util.List;
 public class WinnerDeterminer {
 
     public List<RacingCar> getWinners(List<RacingCar> participants) {
-        int maxPosition = getMaxPosition(participants);
+        int maxPosition = getMaxPositionFromCars(participants);
 
         return participants.stream()
                 .filter(p->p.getPosition() == maxPosition)
                 .toList();
     }
 
-    private int getMaxPosition(List<RacingCar> participants) {
+    private int getMaxPositionFromCars(List<RacingCar> participants) {
         return participants.stream()
                 .mapToInt(RacingCar::getPosition)
                 .max()
