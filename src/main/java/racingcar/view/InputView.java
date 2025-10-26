@@ -12,6 +12,9 @@ public class InputView {
     private static final String ATTEMPT_COUNT_GUIDE_MESSAGE = "시도할 횟수는 몇 회인가요?";
     private static final String DELIMITER = ",";
 
+    private InputView() {
+    }
+
     public static List<String> getCarNames() {
         System.out.println(CAR_NAMES_GUIDE_MESSAGE);
         String input = Console.readLine();
